@@ -1,9 +1,12 @@
+import UIKit
 
 ////////////////////////////////////////////////////////////////
 //MARK: -
 //MARK: Factory Method Pattern
 //MARK: -
 ////////////////////////////////////////////////////////////////
+
+// Example
 
 enum CarType {
 	case lamborghini
@@ -26,8 +29,9 @@ class Ferrari: Car {
 	}
 }
 
-// Car Factory
 class CarFactory {
+	
+	// return object based on the param
 	static func create(carType: CarType) -> Car {
 		switch carType {
 		case .lamborghini:
@@ -36,7 +40,10 @@ class CarFactory {
 			return Ferrari()
 		}
 	}
+	
 }
+
+// Usage
 
 let lamborghini = CarFactory.create(carType: .lamborghini)
 let ferrari = CarFactory.create(carType: .ferrari)
@@ -49,7 +56,10 @@ let ferrari = CarFactory.create(carType: .ferrari)
 //MARK: -
 ////////////////////////////////////////////////////////////////
 
+// Example
+
 class Database {
+	
 	static let instance = Database()
 	
 	private init() {
@@ -59,9 +69,13 @@ class Database {
 	func write() {
 		print("Writing datatase")
 	}
+	
 }
 
+// Usage
+
 Database.instance.write()
+
 
 
 ////////////////////////////////////////////////////////////////
@@ -70,42 +84,54 @@ Database.instance.write()
 //MARK: -
 ////////////////////////////////////////////////////////////////
 
-class WebService {
-	var header: String = ""
-	var url: String = ""
-	var param: String = ""
-	var token: String = ""
-	var type: String = ""
+// Example
+
+extension UILabel {
 	
 	class Builder {
 		
-		var webService = WebService()
+		// Component we want to build part by part
+		private let label = UILabel(frame: .zero)
 		
-		func withHeader(_ header: String) -> Self {
-			webService.header = header
+		func withBackgroundColor(_ color: UIColor) -> Self {
+			label.backgroundColor = color
 			return self
 		}
 		
-		func withURLAndParam(url: String, param: String) -> Self {
-			webService.url = url
-			webService.param = param
+		func withTextColor(_ color: UIColor) -> Self {
+			label.textColor = color
 			return self
 		}
 		
-		func withToken(_ token: String) -> Self {
-			webService.token = token
+		func withFont(_ font: UIFont) -> Self {
+			label.font = font
 			return self
 		}
 		
-		func contentType(_ type: String) -> Self {
-			webService.type = type
+		func withFrame(_ frame: CGRect) -> Self {
+			label.frame = frame
 			return self
 		}
 		
-		func request() {
-			print("\(webService.url) + \(webService.param) + \(webService.header) + \(webService.token)")
+		func setText(_ text: String) -> Self {
+			label.text = text
+			return self
+		}
+		
+		func build() -> UILabel {
+			return label
 		}
 		
 	}
 	
 }
+
+// Usage
+
+let label = UILabel.Builder()
+					.withFont(.boldSystemFont(ofSize: 18))
+					.withBackgroundColor(.green)
+					.withTextColor(.white)
+					.withFrame(.zero)
+					.setText("Builder Pattern")
+					.build()
