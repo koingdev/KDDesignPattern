@@ -131,10 +131,10 @@ extension UILabel {
 
 // Usage
 let label = UILabel.Builder()
-              .withFont(.boldSystemFont(ofSize: 18))
-              .withBackgroundColor(.green)
-              .withTextColor(.white)
-              .withFrame(.zero)
-              .setText("Builder Pattern")
-              .build()
+                  .withFont(.boldSystemFont(ofSize: 18))
+                  .withBackgroundColor(.green)
+                  .withTextColor(.white)
+                  .withFrame(.zero)
+                  .setText("Builder Pattern")
+                  .build()
 ```
