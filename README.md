@@ -1,11 +1,11 @@
 # CREATIONAL
 > Creational software design patterns deal with object creation mechanisms
 ## Factory Method
-**Should be applied when:**
+*Should be applied when:*
 * We have a superclass with multiple subclasses and we need to return one of the subclass based on the parameter
 * We want to separates the code of instantiation a class to the Factory class (Loose Coupling)
 
-**How it solves the problem:**
+*How it solves the problem:*
 * Provides a static method with return-type of superclass or protocol and return a specific object based on the parameter
 
 ### Example
