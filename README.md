@@ -49,3 +49,32 @@ class CarFactory {
 let lamborghini = CarFactory.create(carType: .lamborghini)
 let ferrari = CarFactory.create(carType: .ferrari)
 ```
+## Singleton
+*Should be applied when:*
+* We want to create one object and globally use it the whole time
+* We don’t want to create the same object again and again
+* Do not overuse this pattern 🙂
+
+*How it solves the problem:*
+* A class contains one global shared instance property
+* Use private constructor to ensure that the object can only be instantiated once
+
+### Example
+```swift
+class Database {
+
+	static let instance = Database()
+
+	private init() {
+		// to prevent 2nd initialization
+	}
+
+	func write() {
+		print("Writing datatase")
+	}
+
+}
+
+// Usage
+Database.instance.write()
+```
