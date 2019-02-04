@@ -78,3 +78,63 @@ class Database {
 // Usage
 Database.instance.write()
 ```
+## Builder
+*Should be applied when:*
+* You need to compose complex objects
+* Object contains a lot of properties
+* A constructor has too many parameters, it gets difficult to read and manage
+
+*How it solves the problem:*
+* Use an inner-class Builder to create the object part-by-part and provide a method that will return the final object
+
+### Example
+```swift
+extension UILabel {
+
+	class Builder {
+
+		// Component we want to build part by part
+		private let label = UILabel(frame: .zero)
+
+		func withBackgroundColor(_ color: UIColor) -> Self {
+			label.backgroundColor = color
+			return self
+		}
+
+		func withTextColor(_ color: UIColor) -> Self {
+			label.textColor = color
+			return self
+		}
+
+		func withFont(_ font: UIFont) -> Self {
+			label.font = font
+			return self
+		}
+
+		func withFrame(_ frame: CGRect) -> Self {
+			label.frame = frame
+			return self
+		}
+
+		func setText(_ text: String) -> Self {
+			label.text = text
+			return self
+		}
+
+		func build() -> UILabel {
+			return label
+		}
+
+	}
+
+}
+
+// Usage
+let label = UILabel.Builder()
+        					.withFont(.boldSystemFont(ofSize: 18))
+        					.withBackgroundColor(.green)
+        					.withTextColor(.white)
+        					.withFrame(.zero)
+        					.setText("Builder Pattern")
+        					.build()
+```
