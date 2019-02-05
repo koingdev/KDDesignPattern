@@ -5,6 +5,8 @@
 //MARK: -
 ////////////////////////////////////////////////////////////////
 
+// Example
+
 protocol Computer {
 	var cost: Double { get }
 	var description: String { get }
@@ -82,3 +84,51 @@ desktop = GraphicCardUpgrade(computer: desktop)
 //desktop = ProcessorUpgrade(computer: GraphicCardUpgrade(computer: desktop))
 
 print(desktop.description + ", $\(desktop.cost)")
+
+
+
+////////////////////////////////////////////////////////////////
+//MARK: -
+//MARK: Flyweight
+//MARK: -
+////////////////////////////////////////////////////////////////
+
+// Example
+
+final class Car {
+	
+	var name: String
+	
+	init(name: String) {
+		self.name = name
+	}
+	
+}
+
+// Create and cache Car for future use
+final class FlyweightCar {
+	
+	// Flyweight objects
+	var cars: [String : Car] = [:]
+	
+	// If brand name already exists, return cache
+	// Otherwise create and return new one
+	func getCarByBrand(name: String) -> Car {
+		if let cacheCar = cars[name] {
+			return cacheCar
+		} else {
+			let car = Car(name: name)
+			cars[name] = car
+			return car
+		}
+	}
+	
+}
+
+// Usage
+
+let people = FlyweightCar()
+// create new car BMW
+let bmw1 = people.getCarByBrand(name: "BMW")
+// get from the cache and reuse
+let bmw2 = people.getCarByBrand(name: "BMW")
