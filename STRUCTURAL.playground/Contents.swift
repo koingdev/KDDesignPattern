@@ -127,8 +127,8 @@ final class FlyweightCar {
 
 // Usage
 
-let people = FlyweightCar()
+let car = FlyweightCar()
 // create new car BMW
-let bmw1 = people.getCarByBrand(name: "BMW")
+let bmw1 = car.getCarByBrand(name: "BMW")
 // get from the cache and reuse
-let bmw2 = people.getCarByBrand(name: "BMW")
+let bmw2 = car.getCarByBrand(name: "BMW")
