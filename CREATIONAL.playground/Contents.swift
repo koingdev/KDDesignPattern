@@ -118,6 +118,7 @@ extension UILabel {
 			return self
 		}
 		
+		// Return the final object
 		func build() -> UILabel {
 			return label
 		}
