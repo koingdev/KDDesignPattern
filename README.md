@@ -1,5 +1,5 @@
 # CREATIONAL
-> Creational software design patterns deal with object creation mechanisms
+> Creational software design pattern deals with object creation mechanisms
 ## Factory Method
 *Should be applied when:*
 * We have a superclass with multiple subclasses and we need to return one of the subclass based on the parameter
@@ -139,11 +139,11 @@ let label = UILabel.Builder()
                   .build()
 ```
 # STRUCTURAL
-> Structural software design patterns deal with class structure mechanisms
+> Structural software design pattern deals with class structure mechanisms
 ## Decorator
 *Should be applied when:*
 * We want to extend or modify the functionality of object at runtime without affecting the original object
-* We don’t want to modify the behavior using Inheritance
+* We don’t want to modify the object behavior using Inheritance
 * Inheritance sometimes leads to complex and complicated structure
 * Composition over Inheritance :)
 
