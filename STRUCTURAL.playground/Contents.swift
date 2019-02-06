@@ -105,7 +105,7 @@ final class Car {
 	
 }
 
-// Create and cache Car for future use
+// Create and cache Cars for future use
 final class FlyweightCar {
 	
 	// Flyweight objects
@@ -128,7 +128,7 @@ final class FlyweightCar {
 // Usage
 
 let car = FlyweightCar()
-// create new car BMW
+// create new BMW car
 let bmw1 = car.getCarByBrand(name: "BMW")
-// get from the cache and reuse
+// get BMW car from the cache and reuse instead of creating new
 let bmw2 = car.getCarByBrand(name: "BMW")
